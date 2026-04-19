@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ons Manai — Développeuse Mobile & Full Stack</title>
+<meta name="description" content="Portfolio d'Ons Manai, développeuse Mobile & Full Stack spécialisée en Flutter, Angular et Spring Boot." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #faf9f6;
+    --white: #ffffff;
+    --border: #ece9e3;
+    --border-hover: #d4c4b0;
+    --text-dark: #1a1a1a;
+    --text-mid: #555;
+    --text-light: #888;
+    --text-faint: #aaa;
+    --accent: #b07d4f;
+    --accent-bg: #f5ede3;
+    --accent-border: #e8ddd4;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo {
+    font-family: var(--serif); font-size: 22px; font-weight: 600;
+    color: var(--text-dark); text-decoration: none;
+  }
+  .nav-logo em { color: var(--accent); font-style: italic; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 12px; color: var(--text-light); text-decoration: none;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text-dark); }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid; grid-template-columns: 1fr 400px;
+    gap: 80px; align-items: center;
+    padding: 90px 48px 80px; max-width: 1200px; margin: 0 auto;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-bg);
+    border-radius: 20px; padding: 6px 14px; margin-bottom: 24px;
+  }
+  .badge-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+  .hero-name {
+    font-family: var(--serif); font-size: 72px; font-weight: 600;
+    line-height: 1.0; color: var(--text-dark); margin-bottom: 8px;
+  }
+  .hero-name em { color: var(--accent); font-style: italic; font-weight: 400; }
+  .hero-sub {
+    font-size: 14px; color: var(--text-light);
+    letter-spacing: 0.06em; margin-bottom: 24px; font-weight: 300;
+  }
+  .hero-desc {
+    font-size: 15px; line-height: 1.8; color: var(--text-mid);
+    max-width: 500px; margin-bottom: 40px;
+  }
+  .hero-ctas { display: flex; gap: 14px; }
+  .btn-primary {
+    background: var(--text-dark); color: var(--cream);
+    border: none; padding: 14px 28px; border-radius: 6px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    cursor: pointer; font-family: var(--sans); transition: background 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: #333; }
+  .btn-outline {
+    background: transparent; color: var(--text-dark);
+    border: 1px solid var(--border); padding: 14px 28px; border-radius: 6px;
+    font-size: 13px; cursor: pointer; font-family: var(--sans);
+    transition: border-color 0.2s; text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: #999; }
+
+  /* Hero Card */
+  .hero-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 20px; padding: 36px;
+  }
+  .hc-label {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .hc-avatar {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--accent-bg);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 26px; font-weight: 600;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .hc-name {
+    font-family: var(--serif); font-size: 26px; font-weight: 600;
+    color: var(--text-dark); margin-bottom: 4px;
+  }
+  .hc-role { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+  .hc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .hc-stat {
+    background: var(--cream); border-radius: 10px; padding: 14px;
+    border: 1px solid var(--border);
+  }
+  .hc-stat-n {
+    font-family: var(--serif); font-size: 26px; font-weight: 600;
+    color: var(--text-dark);
+  }
+  .hc-stat-l { font-size: 11px; color: var(--text-faint); letter-spacing: 0.06em; margin-top: 2px; }
+  .hc-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .chip {
+    font-size: 11px; padding: 4px 10px; border-radius: 4px;
+    background: #f0f0f0; color: #555; letter-spacing: 0.04em;
+  }
+  .chip.accent { background: var(--accent-bg); color: var(--accent); }
+
+  /* ── LAYOUT ── */
+  .page-section {
+    padding: 80px 48px; max-width: 1200px; margin: 0 auto;
+  }
+  .divider { height: 1px; background: var(--border); }
+  .sec-label {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+  }
+  .sec-title {
+    font-family: var(--serif); font-size: 44px; font-weight: 600;
+    color: var(--text-dark); margin-bottom: 52px; line-height: 1.15;
+  }
+  .sec-title em { color: var(--accent); font-style: italic; font-weight: 400; }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 14px;
+  }
+  .sk-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .sk-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 4px 20px rgba(176,125,79,0.07);
+  }
+  .sk-cat {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .sk-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .stag {
+    font-size: 12px; padding: 4px 10px; border-radius: 4px;
+    background: #f5f4f1; color: #444; border: 1px solid var(--border);
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-list { display: flex; flex-direction: column; }
+  .exp-item {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 48px; padding: 36px 0;
+    border-top: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: 1px solid var(--border); }
+  .exp-date { font-size: 12px; color: var(--text-faint); padding-top: 4px; line-height: 1.6; }
+  .exp-co { font-size: 12px; color: var(--accent); margin-top: 4px; }
+  .exp-role {
+    font-family: var(--serif); font-size: 22px; font-weight: 600;
+    color: var(--text-dark); margin-bottom: 14px; font-style: italic;
+  }
+  .exp-ul { list-style: none; }
+  .exp-ul li {
+    font-size: 14px; line-height: 1.75; color: #666;
+    padding-left: 16px; margin-bottom: 6px; position: relative;
+  }
+  .exp-ul li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+
+  /* ── PROJECTS ── */
+  .proj-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+  }
+  .proj-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 16px; padding: 30px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .proj-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 6px 24px rgba(176,125,79,0.08);
+  }
+  .proj-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--accent-border);
+  }
+  .proj-num {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #c4b5a5; margin-bottom: 14px;
+  }
+  .proj-name {
+    font-family: var(--serif); font-size: 26px; font-weight: 600;
+    color: var(--text-dark); margin-bottom: 10px;
+  }
+  .proj-link {
+    display: flex; align-items: center; gap: 8px;
+    text-decoration: none; color: var(--text-dark);
+    transition: color 0.2s;
+  }
+  .proj-link:hover { color: var(--accent); }
+  .proj-icon {
+    width: 16px; height: 16px; flex-shrink: 0;
+    opacity: 0.4; transition: opacity 0.2s;
+  }
+  .proj-link:hover .proj-icon { opacity: 1; }
+  .proj-desc { font-size: 14px; line-height: 1.75; color: #777; margin-bottom: 20px; }
+  .proj-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ptag {
+    font-size: 11px; padding: 3px 9px; border-radius: 3px;
+    background: var(--accent-bg); color: var(--accent);
+    border: 1px solid var(--accent-border); letter-spacing: 0.04em;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .edu-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px;
+  }
+  .edu-yr { font-size: 12px; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.04em; }
+  .edu-deg {
+    font-family: var(--serif); font-size: 18px; font-weight: 600;
+    color: var(--text-dark); margin-bottom: 4px;
+  }
+  .edu-sch { font-size: 13px; color: var(--text-faint); }
+
+  /* ── CONTACT ── */
+  .cta-box {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 20px; padding: 60px 48px; text-align: center;
+  }
+  .cta-title {
+    font-family: var(--serif); font-size: 48px; font-weight: 600;
+    color: var(--text-dark); margin-bottom: 14px; line-height: 1.15;
+  }
+  .cta-title em { color: var(--accent); font-style: italic; font-weight: 400; }
+  .cta-sub { font-size: 15px; color: var(--text-light); margin-bottom: 36px; }
+  .cta-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .cta-link {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 8px; padding: 13px 22px; font-size: 14px; color: #444;
+    text-decoration: none; transition: border-color 0.2s, color 0.2s;
+  }
+  .cta-link:hover { border-color: var(--border-hover); color: var(--text-dark); }
+  .cl-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 28px; font-size: 12px;
+    color: #bbb; letter-spacing: 0.08em;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 18px; }
+    .hero { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+    .hero-card { display: none; }
+    .hero-name { font-size: 52px; }
+    .page-section { padding: 60px 24px; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    .divider { margin: 0 24px; }
+  }
+  @media (max-width: 600px) {
+    nav { flex-direction: column; gap: 12px; padding: 16px; }
+    .hero-name { font-size: 40px; }
+    .sec-title { font-size: 32px; }
+    .cta-box { padding: 40px 24px; }
+    .cta-title { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Ons <em>Manai</em></a>
+  <ul class="nav-links">
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#experience">Expérience</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <style>
+    html { scroll-padding-top: 72px; }
+  </style>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="badge"><span class="badge-dot"></span>Ouverte aux opportunités</div>
+    <h1 class="hero-name">Ons<br><em>Manai</em></h1>
+    <p class="hero-sub">Développeuse Mobile &amp; Full Stack · Flutter · Angular · Spring Boot</p>
+    <p class="hero-desc">Master en Services Web &amp; Multimédia — je construis des applications mobiles et web performantes, avec une approche rigoureuse de l'architecture, de la sécurité et du design, enrichie par l'intelligence artificielle.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#contact">Me contacter</a>
+      <a class="btn-outline" href="#projets">Voir mes projets</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="hc-label">Profil</div>
+    <div class="hc-avatar">OM</div>
+    <div class="hc-name">Ons Manai</div>
+    <div class="hc-role">Développeuse Full Stack &amp; Mobile · Monastir, Tunisie</div>
+    <div class="hc-stats">
+      <div class="hc-stat"><div class="hc-stat-n">4+</div><div class="hc-stat-l">Expériences</div></div>
+      <div class="hc-stat"><div class="hc-stat-n">3</div><div class="hc-stat-l">Projets majeurs</div></div>
+      <div class="hc-stat"><div class="hc-stat-n">Master</div><div class="hc-stat-l">ISITCOM 2025</div></div>
+      <div class="hc-stat"><div class="hc-stat-n">3</div><div class="hc-stat-l">Langues</div></div>
+    </div>
+    <div class="hc-chips">
+      <span class="chip accent">Flutter</span>
+      <span class="chip accent">Spring Boot</span>
+      <span class="chip">Angular</span>
+      <span class="chip">Gen AI</span>
+      <span class="chip">RAG</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- COMPETENCES -->
+<section class="page-section" id="competences">
+  <p class="sec-label">Compétences</p>
+  <h2 class="sec-title">Mon <em>arsenal</em> technique</h2>
+  <div class="skills-grid">
+    <div class="sk-card">
+      <div class="sk-cat">Mobile</div>
+      <div class="sk-tags"><span class="stag">Flutter</span><span class="stag">Dart</span></div>
+    </div>
+    <div class="sk-card">
+      <div class="sk-cat">Frontend &amp; Backend</div>
+      <div class="sk-tags">
+        <span class="stag">Angular</span><span class="stag">Spring Boot</span>
+        <span class="stag">TypeScript</span><span class="stag">JavaScript</span>
+        <span class="stag">HTML/CSS</span><span class="stag">Bootstrap</span><span class="stag">Java</span>
+      </div>
+    </div>
+    <div class="sk-card">
+      <div class="sk-cat">IA &amp; Data</div>
+      <div class="sk-tags">
+        <span class="stag">Generative AI</span><span class="stag">RAG</span>
+        <span class="stag">NLP</span><span class="stag">Machine Learning</span><span class="stag">Python</span>
+      </div>
+    </div>
+    <div class="sk-card">
+      <div class="sk-cat">Bases de données &amp; DevOps</div>
+      <div class="sk-tags">
+        <span class="stag">MySQL</span><span class="stag">MongoDB</span>
+        <span class="stag">Docker</span><span class="stag">Git</span><span class="stag">Postman</span>
+      </div>
+    </div>
+    <div class="sk-card">
+      <div class="sk-cat">Méthodologies</div>
+      <div class="sk-tags">
+        <span class="stag">Agile / Scrum</span><span class="stag">UML</span><span class="stag">UX/UI</span>
+      </div>
+    </div>
+    <div class="sk-card">
+      <div class="sk-cat">Langues</div>
+      <div class="sk-tags">
+        <span class="stag">Arabe (natif)</span><span class="stag">Français (intermédiaire)</span><span class="stag">Anglais (intermédiaire)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section class="page-section" id="experience">
+  <p class="sec-label">Expérience</p>
+  <h2 class="sec-title">Mon <em>parcours</em></h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-date">Fév. 2025 – Juin 2025</div>
+        <div class="exp-co">Yooreed · Sousse</div>
+      </div>
+      <div>
+        <div class="exp-role">Stagiaire PFE — Full Stack &amp; Mobile</div>
+        <ul class="exp-ul">
+          <li>Conception et développement de Campus Connect, application mobile de gestion de scolarité</li>
+          <li>Architecture full-stack Flutter (frontend) + Spring Boot (backend)</li>
+          <li>Intégration d'un chatbot intelligent avec Python, IA Générative et architecture RAG</li>
+          <li>Application des meilleures pratiques : modularité, sécurité, design UX/UI</li>
+          <li>Livraison d'une solution évolutive et maintenable pour le domaine éducatif</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-date">Juil. 2024 – Août 2024</div>
+        <div class="exp-co">Yooreed · Sousse</div>
+      </div>
+      <div>
+        <div class="exp-role">Stagiaire — Développement Mobile</div>
+        <ul class="exp-ul">
+          <li>Développement d'une application mobile éducative</li>
+          <li>Architecture full-stack Flutter (frontend) + Spring Boot (backend)</li>
+          <li>Bonnes pratiques en performance, sécurité et UX/UI</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-date">Fév. 2023 – Juin 2023</div>
+        <div class="exp-co">Flesk · Monastir</div>
+      </div>
+      <div>
+        <div class="exp-role">Stagiaire PFE — Application Mobile</div>
+        <ul class="exp-ul">
+          <li>Conception et développement d'une application mobile pour la gestion des académies de football</li>
+          <li>Architecture full-stack Flutter + Spring Boot</li>
+          <li>Collaboration sur la scalabilité et la maintenabilité de l'application</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-date">Juil. 2022 – Sept. 2022</div>
+        <div class="exp-co">Dev Pro Solution · Monastir</div>
+      </div>
+      <div>
+        <div class="exp-role">Stagiaire — Développement Web</div>
+        <ul class="exp-ul">
+          <li>Développement d'un site e-commerce complet</li>
+          <li>Frontend Angular + backend Spring Boot</li>
+          <li>Optimisation des performances et amélioration de l'expérience utilisateur</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJETS -->
+<section class="page-section" id="projets">
+  <p class="sec-label">Projets phares</p>
+  <h2 class="sec-title">Ce que j'ai <em>construit</em></h2>
+  <div class="proj-grid">
+
+    <div class="proj-card">
+      <div class="proj-num">01 — PFE Master</div>
+      <a class="proj-name proj-link" href="https://github.com/ons-manai08/CampusConnect" target="_blank" rel="noopener">
+        Campus Connect
+        <svg class="proj-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1v-3M10 2h4m0 0v4m0-4L8 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="proj-desc">Application mobile de gestion de scolarité avec chatbot IA intégré basé sur l'architecture RAG pour des réponses contextuelles et factuelles en temps réel. Solution évolutive pour le domaine éducatif.</p>
+      <div class="proj-stack">
+        <span class="ptag">Flutter</span><span class="ptag">Spring Boot</span>
+        <span class="ptag">Python</span><span class="ptag">RAG</span><span class="ptag">Generative AI</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">02 — PFE Licence</div>
+      <a class="proj-name proj-link" href="https://github.com/ons-manai/academies-football" target="_blank" rel="noopener">
+        Gestion Académies Football
+        <svg class="proj-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1v-3M10 2h4m0 0v4m0-4L8 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="proj-desc">Application mobile complète pour la gestion des académies sportives, avec une architecture full-stack scalable et maintenable, développée en collaboration avec une équipe technique.</p>
+      <div class="proj-stack">
+        <span class="ptag">Flutter</span><span class="ptag">Spring Boot</span><span class="ptag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">03 — Stage</div>
+      <a class="proj-name proj-link" href="https://github.com/ons-manai/ecommerce" target="_blank" rel="noopener">
+        Plateforme E-Commerce
+        <svg class="proj-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1v-3M10 2h4m0 0v4m0-4L8 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="proj-desc">Site e-commerce complet avec frontend Angular et backend Spring Boot, optimisé pour la performance, la sécurité et l'expérience utilisateur.</p>
+      <div class="proj-stack">
+        <span class="ptag">Angular</span><span class="ptag">Spring Boot</span><span class="ptag">TypeScript</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section class="page-section" id="formation">
+  <p class="sec-label">Formation</p>
+  <h2 class="sec-title">Mon <em>parcours</em> académique</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-yr">2023 – 2025</div>
+      <div class="edu-deg">Master Professionnel — Services Web &amp; Multimédia</div>
+      <div class="edu-sch">ISITCOM · Sousse</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-yr">2020 – 2023</div>
+      <div class="edu-deg">Licence — Sciences de l'Informatique</div>
+      <div class="edu-sch">ISITCOM · Sousse</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-yr">2020</div>
+      <div class="edu-deg">Baccalauréat — Informatique</div>
+      <div class="edu-sch">Lycée Said Boubaker · Moknine</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section class="page-section" id="contact">
+  <div class="cta-box">
+    <h2 class="cta-title">Travaillons <em>ensemble</em></h2>
+    <p class="cta-sub">Je suis disponible pour de nouvelles opportunités — n'hésitez pas à me contacter !</p>
+    <div class="cta-links">
+      <a class="cta-link" href="mailto:ons.manai2001@gmail.com">
+        <span class="cl-dot"></span>ons.manai2001@gmail.com
+      </a>
+      <a class="cta-link" href="tel:+21693454021">
+        <span class="cl-dot"></span>+216 93 454 021
+      </a>
+      <span class="cta-link">
+        <span class="cl-dot"></span>Ksar Hellal, Monastir, Tunisie
+      </span>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
+
+</body>
+</html>
