@@ -1,586 +1,570 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Ons Manai — Développeuse Mobile & Full Stack</title>
-<meta name="description" content="Portfolio d'Ons Manai, développeuse Mobile & Full Stack spécialisée en Flutter, Angular et Spring Boot." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<meta name="description" content="Portfolio d'Ons Manai, développeuse Mobile & Full Stack spécialisée en Flutter, Angular et Spring Boot."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --cream: #faf9f6;
-    --white: #ffffff;
-    --border: #ece9e3;
-    --border-hover: #d4c4b0;
-    --text-dark: #1a1a1a;
-    --text-mid: #555;
-    --text-light: #888;
-    --text-faint: #aaa;
-    --accent: #b07d4f;
-    --accent-bg: #f5ede3;
-    --accent-border: #e8ddd4;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--sans);
-    background: var(--cream);
-    color: var(--text-dark);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── NAV ── */
-  nav {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
-    background: var(--cream);
-    border-bottom: 1px solid var(--border);
-    position: sticky; top: 0; z-index: 100;
-  }
-  .nav-logo {
-    font-family: var(--serif); font-size: 22px; font-weight: 600;
-    color: var(--text-dark); text-decoration: none;
-  }
-  .nav-logo em { color: var(--accent); font-style: italic; }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a {
-    font-size: 12px; color: var(--text-light); text-decoration: none;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--text-dark); }
-
-  /* ── HERO ── */
-  .hero {
-    display: grid; grid-template-columns: 1fr 400px;
-    gap: 80px; align-items: center;
-    padding: 90px 48px 80px; max-width: 1200px; margin: 0 auto;
-  }
-  .badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--accent); background: var(--accent-bg);
-    border-radius: 20px; padding: 6px 14px; margin-bottom: 24px;
-  }
-  .badge-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent); animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.7); }
-  }
-  .hero-name {
-    font-family: var(--serif); font-size: 72px; font-weight: 600;
-    line-height: 1.0; color: var(--text-dark); margin-bottom: 8px;
-  }
-  .hero-name em { color: var(--accent); font-style: italic; font-weight: 400; }
-  .hero-sub {
-    font-size: 14px; color: var(--text-light);
-    letter-spacing: 0.06em; margin-bottom: 24px; font-weight: 300;
-  }
-  .hero-desc {
-    font-size: 15px; line-height: 1.8; color: var(--text-mid);
-    max-width: 500px; margin-bottom: 40px;
-  }
-  .hero-ctas { display: flex; gap: 14px; }
-  .btn-primary {
-    background: var(--text-dark); color: var(--cream);
-    border: none; padding: 14px 28px; border-radius: 6px;
-    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
-    cursor: pointer; font-family: var(--sans); transition: background 0.2s;
-    text-decoration: none; display: inline-block;
-  }
-  .btn-primary:hover { background: #333; }
-  .btn-outline {
-    background: transparent; color: var(--text-dark);
-    border: 1px solid var(--border); padding: 14px 28px; border-radius: 6px;
-    font-size: 13px; cursor: pointer; font-family: var(--sans);
-    transition: border-color 0.2s; text-decoration: none; display: inline-block;
-  }
-  .btn-outline:hover { border-color: #999; }
-
-  /* Hero Card */
-  .hero-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 20px; padding: 36px;
-  }
-  .hc-label {
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 20px;
-  }
-  .hc-avatar {
-    width: 72px; height: 72px; border-radius: 50%;
-    background: var(--accent-bg);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 26px; font-weight: 600;
-    color: var(--accent); margin-bottom: 20px;
-  }
-  .hc-name {
-    font-family: var(--serif); font-size: 26px; font-weight: 600;
-    color: var(--text-dark); margin-bottom: 4px;
-  }
-  .hc-role { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
-  .hc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .hc-stat {
-    background: var(--cream); border-radius: 10px; padding: 14px;
-    border: 1px solid var(--border);
-  }
-  .hc-stat-n {
-    font-family: var(--serif); font-size: 26px; font-weight: 600;
-    color: var(--text-dark);
-  }
-  .hc-stat-l { font-size: 11px; color: var(--text-faint); letter-spacing: 0.06em; margin-top: 2px; }
-  .hc-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
-  .chip {
-    font-size: 11px; padding: 4px 10px; border-radius: 4px;
-    background: #f0f0f0; color: #555; letter-spacing: 0.04em;
-  }
-  .chip.accent { background: var(--accent-bg); color: var(--accent); }
-
-  /* ── LAYOUT ── */
-  .page-section {
-    padding: 80px 48px; max-width: 1200px; margin: 0 auto;
-  }
-  .divider { height: 1px; background: var(--border); }
-  .sec-label {
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 12px;
-  }
-  .sec-title {
-    font-family: var(--serif); font-size: 44px; font-weight: 600;
-    color: var(--text-dark); margin-bottom: 52px; line-height: 1.15;
-  }
-  .sec-title em { color: var(--accent); font-style: italic; font-weight: 400; }
-
-  /* ── SKILLS ── */
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 14px;
-  }
-  .sk-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 14px; padding: 24px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .sk-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: 0 4px 20px rgba(176,125,79,0.07);
-  }
-  .sk-cat {
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 10px;
-  }
-  .sk-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-  .stag {
-    font-size: 12px; padding: 4px 10px; border-radius: 4px;
-    background: #f5f4f1; color: #444; border: 1px solid var(--border);
-  }
-
-  /* ── EXPERIENCE ── */
-  .exp-list { display: flex; flex-direction: column; }
-  .exp-item {
-    display: grid; grid-template-columns: 200px 1fr;
-    gap: 48px; padding: 36px 0;
-    border-top: 1px solid var(--border);
-  }
-  .exp-item:last-child { border-bottom: 1px solid var(--border); }
-  .exp-date { font-size: 12px; color: var(--text-faint); padding-top: 4px; line-height: 1.6; }
-  .exp-co { font-size: 12px; color: var(--accent); margin-top: 4px; }
-  .exp-role {
-    font-family: var(--serif); font-size: 22px; font-weight: 600;
-    color: var(--text-dark); margin-bottom: 14px; font-style: italic;
-  }
-  .exp-ul { list-style: none; }
-  .exp-ul li {
-    font-size: 14px; line-height: 1.75; color: #666;
-    padding-left: 16px; margin-bottom: 6px; position: relative;
-  }
-  .exp-ul li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
-
-  /* ── PROJECTS ── */
-  .proj-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 18px;
-  }
-  .proj-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 16px; padding: 30px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    position: relative; overflow: hidden;
-  }
-  .proj-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: 0 6px 24px rgba(176,125,79,0.08);
-  }
-  .proj-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0;
-    height: 2px; background: var(--accent-border);
-  }
-  .proj-num {
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: #c4b5a5; margin-bottom: 14px;
-  }
-  .proj-name {
-    font-family: var(--serif); font-size: 26px; font-weight: 600;
-    color: var(--text-dark); margin-bottom: 10px;
-  }
-  .proj-link {
-    display: flex; align-items: center; gap: 8px;
-    text-decoration: none; color: var(--text-dark);
-    transition: color 0.2s;
-  }
-  .proj-link:hover { color: var(--accent); }
-  .proj-icon {
-    width: 16px; height: 16px; flex-shrink: 0;
-    opacity: 0.4; transition: opacity 0.2s;
-  }
-  .proj-link:hover .proj-icon { opacity: 1; }
-  .proj-desc { font-size: 14px; line-height: 1.75; color: #777; margin-bottom: 20px; }
-  .proj-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-  .ptag {
-    font-size: 11px; padding: 3px 9px; border-radius: 3px;
-    background: var(--accent-bg); color: var(--accent);
-    border: 1px solid var(--accent-border); letter-spacing: 0.04em;
-  }
-
-  /* ── EDUCATION ── */
-  .edu-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 14px;
-  }
-  .edu-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 12px; padding: 24px;
-  }
-  .edu-yr { font-size: 12px; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.04em; }
-  .edu-deg {
-    font-family: var(--serif); font-size: 18px; font-weight: 600;
-    color: var(--text-dark); margin-bottom: 4px;
-  }
-  .edu-sch { font-size: 13px; color: var(--text-faint); }
-
-  /* ── CONTACT ── */
-  .cta-box {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 20px; padding: 60px 48px; text-align: center;
-  }
-  .cta-title {
-    font-family: var(--serif); font-size: 48px; font-weight: 600;
-    color: var(--text-dark); margin-bottom: 14px; line-height: 1.15;
-  }
-  .cta-title em { color: var(--accent); font-style: italic; font-weight: 400; }
-  .cta-sub { font-size: 15px; color: var(--text-light); margin-bottom: 36px; }
-  .cta-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-  .cta-link {
-    display: flex; align-items: center; gap: 8px;
-    background: var(--cream); border: 1px solid var(--border);
-    border-radius: 8px; padding: 13px 22px; font-size: 14px; color: #444;
-    text-decoration: none; transition: border-color 0.2s, color 0.2s;
-  }
-  .cta-link:hover { border-color: var(--border-hover); color: var(--text-dark); }
-  .cl-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-
-  /* ── FOOTER ── */
-  footer {
-    text-align: center; padding: 28px; font-size: 12px;
-    color: #bbb; letter-spacing: 0.08em;
-    border-top: 1px solid var(--border);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    .nav-links { gap: 18px; }
-    .hero { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
-    .hero-card { display: none; }
-    .hero-name { font-size: 52px; }
-    .page-section { padding: 60px 24px; }
-    .exp-item { grid-template-columns: 1fr; gap: 8px; }
-    .divider { margin: 0 24px; }
-  }
-  @media (max-width: 600px) {
-    nav { flex-direction: column; gap: 12px; padding: 16px; }
-    .hero-name { font-size: 40px; }
-    .sec-title { font-size: 32px; }
-    .cta-box { padding: 40px 24px; }
-    .cta-title { font-size: 36px; }
-  }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#faf9f6;--white:#fff;--border:#ece9e3;--border-hover:#d4c4b0;
+  --dark:#1a1a1a;--mid:#555;--light:#888;--faint:#aaa;
+  --accent:#b07d4f;--accent-bg:#f5ede3;--accent-border:#e8ddd4;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:72px;}
+body{font-family:var(--sans);background:var(--cream);color:var(--dark);line-height:1.6;-webkit-font-smoothing:antialiased;}
+.page{display:none;}
+.page.active{display:block;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 56px;background:var(--cream);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--dark);text-decoration:none;cursor:pointer;}
+.nav-logo em{color:var(--accent);font-style:italic;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:12px;color:var(--light);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color .2s;cursor:pointer;}
+.nav-links a:hover,.nav-links a.active-link{color:var(--dark);}
+.hero{display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:center;padding:90px 56px 80px;max-width:1200px;margin:0 auto;}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-bg);border-radius:20px;padding:6px 14px;margin-bottom:24px;}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+.hero-name{font-family:var(--serif);font-size:72px;font-weight:600;line-height:1.0;color:var(--dark);margin-bottom:8px;}
+.hero-name em{color:var(--accent);font-style:italic;font-weight:400;}
+.hero-sub{font-size:14px;color:var(--light);letter-spacing:0.06em;margin-bottom:24px;font-weight:300;}
+.hero-desc{font-size:15px;line-height:1.8;color:var(--mid);max-width:500px;margin-bottom:40px;}
+.hero-ctas{display:flex;gap:14px;}
+.btn-dark{background:var(--dark);color:var(--cream);border:none;padding:14px 28px;border-radius:6px;font-size:13px;font-weight:500;letter-spacing:0.04em;cursor:pointer;font-family:var(--sans);transition:background .2s;}
+.btn-dark:hover{background:#333;}
+.btn-outline{background:transparent;color:var(--dark);border:1px solid var(--border);padding:14px 28px;border-radius:6px;font-size:13px;cursor:pointer;font-family:var(--sans);transition:border-color .2s;}
+.btn-outline:hover{border-color:#999;}
+.hero-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:36px;}
+.hc-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;}
+.hc-avatar{width:72px;height:72px;border-radius:50%;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);margin-bottom:20px;}
+.hc-name{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--dark);margin-bottom:4px;}
+.hc-role{font-size:13px;color:var(--light);margin-bottom:24px;}
+.hc-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.hc-stat{background:var(--cream);border-radius:10px;padding:14px;border:1px solid var(--border);}
+.hc-stat-n{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--dark);}
+.hc-stat-l{font-size:11px;color:var(--faint);letter-spacing:0.06em;margin-top:2px;}
+.hc-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px;}
+.chip{font-size:11px;padding:4px 10px;border-radius:4px;background:#f0f0f0;color:#555;letter-spacing:0.04em;}
+.chip.ac{background:var(--accent-bg);color:var(--accent);}
+.wrap{padding:80px 56px;max-width:1200px;margin:0 auto;}
+.divider{height:1px;background:var(--border);}
+.sec-label{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.sec-title{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--dark);margin-bottom:52px;line-height:1.15;}
+.sec-title em{color:var(--accent);font-style:italic;font-weight:400;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;}
+.sk-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;transition:border-color .2s,box-shadow .2s;}
+.sk-card:hover{border-color:var(--border-hover);box-shadow:0 4px 20px rgba(176,125,79,.07);}
+.sk-cat{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.sk-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.stag{font-size:12px;padding:4px 10px;border-radius:4px;background:#f5f4f1;color:#444;border:1px solid var(--border);}
+.exp-list{display:flex;flex-direction:column;}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:48px;padding:36px 0;border-top:1px solid var(--border);}
+.exp-item:last-child{border-bottom:1px solid var(--border);}
+.exp-date{font-size:12px;color:var(--faint);padding-top:4px;line-height:1.6;}
+.exp-co{font-size:12px;color:var(--accent);margin-top:4px;}
+.exp-role{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--dark);margin-bottom:14px;font-style:italic;}
+.exp-ul{list-style:none;}
+.exp-ul li{font-size:14px;line-height:1.75;color:#666;padding-left:16px;margin-bottom:6px;position:relative;}
+.exp-ul li::before{content:'–';position:absolute;left:0;color:var(--accent);}
+/* PROJECT CARDS */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;}
+.proj-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s,box-shadow .2s;}
+.proj-card:hover{border-color:var(--border-hover);box-shadow:0 8px 32px rgba(176,125,79,.1);}
+.proj-img-placeholder{width:100%;height:200px;background:linear-gradient(135deg,#f5ede3 0%,#ece9e3 100%);display:flex;align-items:center;justify-content:center;font-size:52px;opacity:0.6;}
+.proj-body{padding:24px;}
+.proj-num{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#c4b5a5;margin-bottom:10px;}
+.proj-name{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--dark);margin-bottom:10px;line-height:1.2;}
+.proj-desc-short{font-size:14px;line-height:1.7;color:#777;margin-bottom:18px;}
+.proj-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+.ptag{font-size:11px;padding:3px 9px;border-radius:3px;background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent-border);letter-spacing:0.04em;}
+.proj-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-voir{background:var(--dark);color:var(--cream);border:none;padding:10px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--sans);transition:background .2s;}
+.btn-voir:hover{background:#333;}
+.btn-code{background:transparent;color:var(--dark);border:1px solid var(--border);padding:10px 20px;border-radius:6px;font-size:13px;cursor:pointer;font-family:var(--sans);transition:border-color .2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+.btn-code:hover{border-color:#999;}
+.btn-code svg{width:14px;height:14px;opacity:0.5;}
+/* DETAIL PAGE */
+.detail-hero-wrap{background:var(--white);border-bottom:1px solid var(--border);padding:56px 56px 48px;}
+.detail-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--light);cursor:pointer;margin-bottom:32px;transition:color .2s;border:none;background:none;font-family:var(--sans);padding:0;}
+.detail-back:hover{color:var(--dark);}
+.detail-back svg{width:16px;height:16px;}
+.detail-label{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.detail-title{font-family:var(--serif);font-size:52px;font-weight:600;color:var(--dark);margin-bottom:10px;line-height:1.1;}
+.detail-title em{color:var(--accent);font-style:italic;font-weight:400;}
+.detail-sub{font-size:15px;color:var(--light);margin-bottom:28px;}
+.detail-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+.btn-gh{background:var(--dark);color:var(--cream);border:none;padding:13px 24px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--sans);transition:background .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+.btn-gh:hover{background:#333;}
+.detail-body{max-width:1200px;margin:0 auto;padding:60px 56px;}
+.detail-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.detail-text h3{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--dark);margin-bottom:14px;margin-top:36px;}
+.detail-text h3:first-child{margin-top:0;}
+.detail-text p{font-size:15px;line-height:1.85;color:var(--mid);margin-bottom:16px;}
+.detail-text ul{list-style:none;margin-bottom:16px;}
+.detail-text ul li{font-size:14px;line-height:1.75;color:#666;padding-left:18px;position:relative;margin-bottom:6px;}
+.detail-text ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:12px;}
+.screenshots{display:flex;flex-direction:column;gap:16px;position:sticky;top:92px;}
+.screenshot{border-radius:12px;border:1px solid var(--border);overflow:hidden;}
+.ss-placeholder{height:220px;background:linear-gradient(135deg,#f5ede3,#ece9e3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--faint);font-size:13px;}
+.ss-placeholder .ss-icon{font-size:36px;opacity:0.45;}
+.screenshot img{width:100%;height:auto;display:block;}
+.tech-section{margin-top:44px;padding-top:36px;border-top:1px solid var(--border);}
+.tech-section h3{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--dark);margin-bottom:16px;}
+/* EDU */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+.edu-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;}
+.edu-yr{font-size:12px;color:var(--accent);margin-bottom:8px;letter-spacing:0.04em;}
+.edu-deg{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--dark);margin-bottom:4px;}
+.edu-sch{font-size:13px;color:var(--faint);}
+/* CONTACT */
+.cta-box{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:60px 48px;text-align:center;}
+.cta-title{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--dark);margin-bottom:14px;line-height:1.15;}
+.cta-title em{color:var(--accent);font-style:italic;font-weight:400;}
+.cta-sub{font-size:15px;color:var(--light);margin-bottom:36px;}
+.cta-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.cta-link{display:flex;align-items:center;gap:8px;background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:13px 22px;font-size:14px;color:#444;text-decoration:none;transition:border-color .2s;}
+.cta-link:hover{border-color:var(--border-hover);color:var(--dark);}
+.cl-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0.08em;border-top:1px solid var(--border);}
+/* ABOUT */
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-text p{font-size:15px;line-height:1.85;color:var(--mid);margin-bottom:20px;}
+.about-placeholder{background:var(--accent-bg);border-radius:20px;height:400px;display:flex;align-items:center;justify-content:center;border:1px solid var(--accent-border);}
+.about-initials{font-family:var(--serif);font-size:100px;font-weight:600;color:var(--accent);opacity:0.35;}
+@media(max-width:900px){
+  nav{padding:16px 24px;}
+  .hero{grid-template-columns:1fr;padding:60px 24px;gap:40px;}
+  .hero-card{display:none;}
+  .hero-name{font-size:52px;}
+  .wrap{padding:60px 24px;}
+  .exp-item{grid-template-columns:1fr;gap:8px;}
+  .detail-layout{grid-template-columns:1fr;}
+  .detail-hero-wrap,.detail-body{padding:40px 24px;}
+  .about-layout{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .hero-name{font-size:40px;}
+  .sec-title,.detail-title{font-size:34px;}
+  .cta-title{font-size:34px;}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">Ons <em>Manai</em></a>
+  <span class="nav-logo" onclick="showPage('home')">Ons <em>Manai</em></span>
   <ul class="nav-links">
-    <li><a href="#competences">Compétences</a></li>
-    <li><a href="#experience">Expérience</a></li>
-    <li><a href="#projets">Projets</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a onclick="showPage('home')" id="nav-home" class="active-link">Accueil</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">À propos</a></li>
+    <li><a onclick="showPage('projets')" id="nav-projets">Projets</a></li>
+    <li><a onclick="scrollContact()" id="nav-contact">Contact</a></li>
   </ul>
-  <style>
-    html { scroll-padding-top: 72px; }
-  </style>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div>
-    <div class="badge"><span class="badge-dot"></span>Ouverte aux opportunités</div>
-    <h1 class="hero-name">Ons<br><em>Manai</em></h1>
-    <p class="hero-sub">Développeuse Mobile &amp; Full Stack · Flutter · Angular · Spring Boot</p>
-    <p class="hero-desc">Master en Services Web &amp; Multimédia — je construis des applications mobiles et web performantes, avec une approche rigoureuse de l'architecture, de la sécurité et du design, enrichie par l'intelligence artificielle.</p>
-    <div class="hero-ctas">
-      <a class="btn-primary" href="#contact">Me contacter</a>
-      <a class="btn-outline" href="#projets">Voir mes projets</a>
+<!-- ═══ PAGE HOME ═══ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div>
+      <div class="badge"><span class="badge-dot"></span>Ouverte aux opportunités</div>
+      <h1 class="hero-name">Ons<br><em>Manai</em></h1>
+      <p class="hero-sub">Développeuse Mobile &amp; Full Stack · Flutter · Angular · Spring Boot</p>
+      <p class="hero-desc">Master en Services Web &amp; Multimédia — je construis des applications mobiles et web performantes, avec une approche rigoureuse de l'architecture, de la sécurité et du design, enrichie par l'intelligence artificielle.</p>
+      <div class="hero-ctas">
+        <button class="btn-dark" onclick="showPage('projets')">Voir mes projets</button>
+        <button class="btn-outline" onclick="scrollContact()">Me contacter</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-label">Profil</div>
+      <div class="hc-avatar">OM</div>
+      <div class="hc-name">Ons Manai</div>
+      <div class="hc-role">Développeuse Full Stack &amp; Mobile · Monastir, Tunisie</div>
+      <div class="hc-stats">
+        <div class="hc-stat"><div class="hc-stat-n">4+</div><div class="hc-stat-l">Expériences</div></div>
+        <div class="hc-stat"><div class="hc-stat-n">3</div><div class="hc-stat-l">Projets majeurs</div></div>
+        <div class="hc-stat"><div class="hc-stat-n">Master</div><div class="hc-stat-l">ISITCOM 2025</div></div>
+        <div class="hc-stat"><div class="hc-stat-n">3</div><div class="hc-stat-l">Langues</div></div>
+      </div>
+      <div class="hc-chips">
+        <span class="chip ac">Flutter</span><span class="chip ac">Spring Boot</span>
+        <span class="chip">Angular</span><span class="chip">Gen AI</span><span class="chip">RAG</span>
+      </div>
     </div>
   </div>
-  <div class="hero-card">
-    <div class="hc-label">Profil</div>
-    <div class="hc-avatar">OM</div>
-    <div class="hc-name">Ons Manai</div>
-    <div class="hc-role">Développeuse Full Stack &amp; Mobile · Monastir, Tunisie</div>
-    <div class="hc-stats">
-      <div class="hc-stat"><div class="hc-stat-n">4+</div><div class="hc-stat-l">Expériences</div></div>
-      <div class="hc-stat"><div class="hc-stat-n">3</div><div class="hc-stat-l">Projets majeurs</div></div>
-      <div class="hc-stat"><div class="hc-stat-n">Master</div><div class="hc-stat-l">ISITCOM 2025</div></div>
-      <div class="hc-stat"><div class="hc-stat-n">3</div><div class="hc-stat-l">Langues</div></div>
-    </div>
-    <div class="hc-chips">
-      <span class="chip accent">Flutter</span>
-      <span class="chip accent">Spring Boot</span>
-      <span class="chip">Angular</span>
-      <span class="chip">Gen AI</span>
-      <span class="chip">RAG</span>
+
+  <div class="divider"></div>
+
+  <div class="wrap">
+    <p class="sec-label">Compétences</p>
+    <h2 class="sec-title">Mon <em>arsenal</em> technique</h2>
+    <div class="skills-grid">
+      <div class="sk-card"><div class="sk-cat">Mobile</div><div class="sk-tags"><span class="stag">Flutter</span><span class="stag">Dart</span></div></div>
+      <div class="sk-card"><div class="sk-cat">Frontend &amp; Backend</div><div class="sk-tags"><span class="stag">Angular</span><span class="stag">Spring Boot</span><span class="stag">TypeScript</span><span class="stag">JavaScript</span><span class="stag">HTML/CSS</span><span class="stag">Bootstrap</span><span class="stag">Java</span></div></div>
+      <div class="sk-card"><div class="sk-cat">IA &amp; Data</div><div class="sk-tags"><span class="stag">Generative AI</span><span class="stag">RAG</span><span class="stag">NLP</span><span class="stag">Machine Learning</span><span class="stag">Python</span></div></div>
+      <div class="sk-card"><div class="sk-cat">Bases de données &amp; DevOps</div><div class="sk-tags"><span class="stag">MySQL</span><span class="stag">MongoDB</span><span class="stag">Docker</span><span class="stag">Git</span><span class="stag">Postman</span></div></div>
+      <div class="sk-card"><div class="sk-cat">Méthodologies</div><div class="sk-tags"><span class="stag">Agile / Scrum</span><span class="stag">UML</span><span class="stag">UX/UI</span></div></div>
+      <div class="sk-card"><div class="sk-cat">Langues</div><div class="sk-tags"><span class="stag">Arabe (natif)</span><span class="stag">Français</span><span class="stag">Anglais</span></div></div>
     </div>
   </div>
+
+  <div class="divider"></div>
+
+  <div class="wrap">
+    <p class="sec-label">Expérience</p>
+    <h2 class="sec-title">Mon <em>parcours</em></h2>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div><div class="exp-date">Fév. 2025 – Juin 2025</div><div class="exp-co">Yooreed · Sousse</div></div>
+        <div>
+          <div class="exp-role">Stagiaire PFE — Full Stack &amp; Mobile</div>
+          <ul class="exp-ul">
+            <li>Conception et développement de Campus Connect, application mobile de gestion scolaire</li>
+            <li>Architecture full-stack Flutter (frontend) + Spring Boot (backend)</li>
+            <li>Chatbot intelligent avec Python, IA Générative et architecture RAG</li>
+            <li>Meilleures pratiques : modularité, sécurité, UX/UI</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div><div class="exp-date">Juil. 2024 – Août 2024</div><div class="exp-co">Yooreed · Sousse</div></div>
+        <div>
+          <div class="exp-role">Stagiaire — Développement Mobile</div>
+          <ul class="exp-ul">
+            <li>Application mobile éducative en Flutter + Spring Boot</li>
+            <li>Bonnes pratiques en performance, sécurité et UX/UI</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div><div class="exp-date">Fév. 2023 – Juin 2023</div><div class="exp-co">Flesk · Monastir</div></div>
+        <div>
+          <div class="exp-role">Stagiaire PFE — Application Mobile</div>
+          <ul class="exp-ul">
+            <li>Application mobile pour la gestion des académies de football</li>
+            <li>Architecture Flutter + Spring Boot, focus scalabilité et maintenabilité</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div><div class="exp-date">Juil. 2022 – Sept. 2022</div><div class="exp-co">Dev Pro Solution · Monastir</div></div>
+        <div>
+          <div class="exp-role">Stagiaire — Développement Web</div>
+          <ul class="exp-ul">
+            <li>Site e-commerce complet : Angular (frontend) + Spring Boot (backend)</li>
+            <li>Optimisation des performances et amélioration de l'UX</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="wrap">
+    <p class="sec-label">Formation</p>
+    <h2 class="sec-title">Mon <em>parcours</em> académique</h2>
+    <div class="edu-grid">
+      <div class="edu-card"><div class="edu-yr">2023 – 2025</div><div class="edu-deg">Master — Services Web &amp; Multimédia</div><div class="edu-sch">ISITCOM · Sousse</div></div>
+      <div class="edu-card"><div class="edu-yr">2020 – 2023</div><div class="edu-deg">Licence — Sciences de l'Informatique</div><div class="edu-sch">ISITCOM · Sousse</div></div>
+      <div class="edu-card"><div class="edu-yr">2020</div><div class="edu-deg">Baccalauréat — Informatique</div><div class="edu-sch">Lycée Said Boubaker · Moknine</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="wrap" id="contact">
+    <div class="cta-box">
+      <h2 class="cta-title">Travaillons <em>ensemble</em></h2>
+      <p class="cta-sub">Je suis disponible pour de nouvelles opportunités — n'hésitez pas à me contacter !</p>
+      <div class="cta-links">
+        <a class="cta-link" href="mailto:ons.manai2001@gmail.com"><span class="cl-dot"></span>ons.manai2001@gmail.com</a>
+        <a class="cta-link" href="tel:+21693454021"><span class="cl-dot"></span>+216 93 454 021</a>
+        <span class="cta-link"><span class="cl-dot"></span>Ksar Hellal, Monastir, Tunisie</span>
+      </div>
+    </div>
+  </div>
+  <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
 
-<div class="divider"></div>
-
-<!-- COMPETENCES -->
-<section class="page-section" id="competences">
-  <p class="sec-label">Compétences</p>
-  <h2 class="sec-title">Mon <em>arsenal</em> technique</h2>
-  <div class="skills-grid">
-    <div class="sk-card">
-      <div class="sk-cat">Mobile</div>
-      <div class="sk-tags"><span class="stag">Flutter</span><span class="stag">Dart</span></div>
-    </div>
-    <div class="sk-card">
-      <div class="sk-cat">Frontend &amp; Backend</div>
-      <div class="sk-tags">
-        <span class="stag">Angular</span><span class="stag">Spring Boot</span>
-        <span class="stag">TypeScript</span><span class="stag">JavaScript</span>
-        <span class="stag">HTML/CSS</span><span class="stag">Bootstrap</span><span class="stag">Java</span>
+<!-- ═══ PAGE ABOUT ═══ -->
+<div class="page" id="page-about">
+  <div class="wrap">
+    <p class="sec-label">À propos</p>
+    <h2 class="sec-title" style="margin-bottom:52px;">Qui suis-<em>je</em> ?</h2>
+    <div class="about-layout">
+      <div class="about-text">
+        <p>Je suis <strong>Ons Manai</strong>, développeuse Full Stack et Mobile basée à Monastir, Tunisie. Titulaire d'un Master Professionnel en Services Web et Multimédia de l'ISITCOM (Sousse), je me spécialise dans la conception d'applications mobiles avec Flutter et de solutions web avec Spring Boot et Angular.</p>
+        <p>Mon parcours m'a permis de travailler sur des projets variés — de la gestion scolaire à l'e-commerce, en passant par la gestion sportive — toujours avec un souci constant de la qualité, de la sécurité et de l'expérience utilisateur.</p>
+        <p>J'ai également exploré l'intelligence artificielle à travers la conception d'un chatbot intelligent basé sur l'architecture RAG (Retrieval-Augmented Generation), ce qui m'a permis de renforcer mes compétences en innovation technologique.</p>
+        <p>Sérieuse, organisée et curieuse, je cherche à contribuer à des projets ambitieux où je peux continuer à apprendre et à créer des solutions à fort impact.</p>
+        <div style="margin-top:32px;"><button class="btn-dark" onclick="showPage('projets')">Voir mes projets</button></div>
       </div>
-    </div>
-    <div class="sk-card">
-      <div class="sk-cat">IA &amp; Data</div>
-      <div class="sk-tags">
-        <span class="stag">Generative AI</span><span class="stag">RAG</span>
-        <span class="stag">NLP</span><span class="stag">Machine Learning</span><span class="stag">Python</span>
-      </div>
-    </div>
-    <div class="sk-card">
-      <div class="sk-cat">Bases de données &amp; DevOps</div>
-      <div class="sk-tags">
-        <span class="stag">MySQL</span><span class="stag">MongoDB</span>
-        <span class="stag">Docker</span><span class="stag">Git</span><span class="stag">Postman</span>
-      </div>
-    </div>
-    <div class="sk-card">
-      <div class="sk-cat">Méthodologies</div>
-      <div class="sk-tags">
-        <span class="stag">Agile / Scrum</span><span class="stag">UML</span><span class="stag">UX/UI</span>
-      </div>
-    </div>
-    <div class="sk-card">
-      <div class="sk-cat">Langues</div>
-      <div class="sk-tags">
-        <span class="stag">Arabe (natif)</span><span class="stag">Français (intermédiaire)</span><span class="stag">Anglais (intermédiaire)</span>
-      </div>
+      <div class="about-placeholder"><div class="about-initials">OM</div></div>
     </div>
   </div>
-</section>
+  <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
+</div>
 
-<div class="divider"></div>
+<!-- ═══ PAGE PROJETS (liste) ═══ -->
+<div class="page" id="page-projets">
+  <div class="wrap">
+    <p class="sec-label">Mes projets</p>
+    <h2 class="sec-title">Ce que j'ai <em>construit</em></h2>
+    <p style="font-size:15px;color:var(--light);margin-top:-36px;margin-bottom:52px;">Découvrez mes projets récents et leurs détails</p>
+    <div class="proj-grid">
 
-<!-- EXPERIENCE -->
-<section class="page-section" id="experience">
-  <p class="sec-label">Expérience</p>
-  <h2 class="sec-title">Mon <em>parcours</em></h2>
-  <div class="exp-list">
-
-    <div class="exp-item">
-      <div>
-        <div class="exp-date">Fév. 2025 – Juin 2025</div>
-        <div class="exp-co">Yooreed · Sousse</div>
+      <div class="proj-card">
+        <div class="proj-img-placeholder">📱</div>
+        <div class="proj-body">
+          <div class="proj-num">01 — PFE Master · 2025</div>
+          <div class="proj-name">Campus Connect</div>
+          <p class="proj-desc-short">Application mobile de gestion de scolarité avec chatbot IA intégré basé sur l'architecture RAG.</p>
+          <div class="proj-stack"><span class="ptag">Flutter</span><span class="ptag">Spring Boot</span><span class="ptag">Python</span><span class="ptag">RAG</span><span class="ptag">Gen AI</span></div>
+          <div class="proj-btns">
+            <button class="btn-voir" onclick="showDetail('campus')">Voir le projet</button>
+            <a class="btn-code" href="https://github.com/ons-manai08/CampusConnect" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              Code source
+            </a>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="exp-role">Stagiaire PFE — Full Stack &amp; Mobile</div>
-        <ul class="exp-ul">
-          <li>Conception et développement de Campus Connect, application mobile de gestion de scolarité</li>
-          <li>Architecture full-stack Flutter (frontend) + Spring Boot (backend)</li>
-          <li>Intégration d'un chatbot intelligent avec Python, IA Générative et architecture RAG</li>
-          <li>Application des meilleures pratiques : modularité, sécurité, design UX/UI</li>
-          <li>Livraison d'une solution évolutive et maintenable pour le domaine éducatif</li>
+
+      <div class="proj-card">
+        <div class="proj-img-placeholder">⚽</div>
+        <div class="proj-body">
+          <div class="proj-num">02 — PFE Licence · 2023</div>
+          <div class="proj-name">Gestion Académies Football</div>
+          <p class="proj-desc-short">Application mobile complète pour la gestion des académies sportives, architecture full-stack scalable.</p>
+          <div class="proj-stack"><span class="ptag">Flutter</span><span class="ptag">Spring Boot</span><span class="ptag">MySQL</span></div>
+          <div class="proj-btns">
+            <button class="btn-voir" onclick="showDetail('football')">Voir le projet</button>
+            <a class="btn-code" href="https://github.com/ons-manai08/academyFootball-app" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              Code source
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-img-placeholder">🛒</div>
+        <div class="proj-body">
+          <div class="proj-num">03 — Stage · 2022</div>
+          <div class="proj-name">Plateforme E-Commerce</div>
+          <p class="proj-desc-short">Site e-commerce complet avec Angular et Spring Boot, optimisé pour la performance et l'UX.</p>
+          <div class="proj-stack"><span class="ptag">Angular</span><span class="ptag">Spring Boot</span><span class="ptag">TypeScript</span></div>
+          <div class="proj-btns">
+            <button class="btn-voir" onclick="showDetail('ecommerce')">Voir le projet</button>
+            <a class="btn-code" href="https://github.com/ons-manai08" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              Code source
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
+</div>
+
+<!-- ═══ DETAIL : CAMPUS CONNECT ═══ -->
+<div class="page" id="page-detail-campus">
+  <div class="detail-hero-wrap">
+    <div style="max-width:1200px;margin:0 auto;">
+      <button class="detail-back" onclick="showPage('projets')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Retour aux projets
+      </button>
+      <p class="detail-label">01 — PFE Master · Yooreed, Sousse · 2025</p>
+      <h1 class="detail-title">Campus <em>Connect</em></h1>
+      <p class="detail-sub">Application mobile de gestion de scolarité avec chatbot IA</p>
+      <div class="detail-badges"><span class="ptag">Flutter</span><span class="ptag">Dart</span><span class="ptag">Spring Boot</span><span class="ptag">Python</span><span class="ptag">RAG</span><span class="ptag">Generative AI</span><span class="ptag">MySQL</span><span class="ptag">Docker</span></div>
+      <a class="btn-gh" href="https://github.com/ons-manai08/CampusConnect" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        Voir le code source sur GitHub
+      </a>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="detail-layout">
+      <div class="detail-text">
+        <h3>Description du projet</h3>
+        <p>Campus Connect est une application mobile complète de gestion de scolarité conçue dans le cadre de mon Projet de Fin d'Études de Master chez Yooreed. Elle centralise toutes les fonctionnalités nécessaires à la gestion académique d'un établissement scolaire.</p>
+        <p>La fonctionnalité phare est l'intégration d'un chatbot intelligent basé sur l'IA Générative et l'architecture RAG (Retrieval-Augmented Generation), qui fournit des réponses contextuelles et factuelles aux utilisateurs en temps réel.</p>
+        <h3>Fonctionnalités principales</h3>
+        <ul>
+          <li>Gestion des étudiants, enseignants et administrateurs</li>
+          <li>Suivi des notes, absences et emplois du temps</li>
+          <li>Chatbot IA avec architecture RAG pour l'assistance contextuelle</li>
+          <li>Authentification sécurisée et gestion des rôles</li>
+          <li>Interface mobile intuitive et responsive (iOS &amp; Android)</li>
+          <li>API REST robuste avec Spring Boot</li>
         </ul>
+        <h3>Architecture technique</h3>
+        <p>Architecture full-stack moderne : Flutter pour le frontend mobile, Spring Boot pour le backend REST API, et Python pour le module IA avec intégration de modèles de langage et architecture RAG pour la base de connaissances.</p>
+        <div class="tech-section">
+          <h3>Technologies utilisées</h3>
+          <div class="sk-tags"><span class="stag">Flutter</span><span class="stag">Dart</span><span class="stag">Spring Boot</span><span class="stag">Java</span><span class="stag">Python</span><span class="stag">Generative AI</span><span class="stag">RAG</span><span class="stag">MySQL</span><span class="stag">Docker</span><span class="stag">Git</span><span class="stag">Postman</span></div>
+        </div>
+      </div>
+      <div class="screenshots">
+        <!-- 
+          Pour ajouter tes vraies captures d'écran, remplace les blocs ss-placeholder 
+          par : <img src="nom-de-ta-capture.png" alt="description"/> 
+          et place les images dans le même dossier que ce fichier HTML.
+        -->
+        <div class="screenshot">
+          <div class="ss-placeholder"><div class="ss-icon">📱</div><span>Écran principal</span><span style="font-size:11px;color:#ccc;">Remplace par ta capture d'écran</span></div>
+        </div>
+        <div class="screenshot">
+          <div class="ss-placeholder"><div class="ss-icon">🤖</div><span>Chatbot IA</span><span style="font-size:11px;color:#ccc;">Remplace par ta capture d'écran</span></div>
+        </div>
+        <div class="screenshot">
+          <div class="ss-placeholder"><div class="ss-icon">📊</div><span>Dashboard admin</span><span style="font-size:11px;color:#ccc;">Remplace par ta capture d'écran</span></div>
+        </div>
       </div>
     </div>
+  </div>
+  <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
+</div>
 
-    <div class="exp-item">
-      <div>
-        <div class="exp-date">Juil. 2024 – Août 2024</div>
-        <div class="exp-co">Yooreed · Sousse</div>
-      </div>
-      <div>
-        <div class="exp-role">Stagiaire — Développement Mobile</div>
-        <ul class="exp-ul">
-          <li>Développement d'une application mobile éducative</li>
-          <li>Architecture full-stack Flutter (frontend) + Spring Boot (backend)</li>
-          <li>Bonnes pratiques en performance, sécurité et UX/UI</li>
+<!-- ═══ DETAIL : FOOTBALL ═══ -->
+<div class="page" id="page-detail-football">
+  <div class="detail-hero-wrap">
+    <div style="max-width:1200px;margin:0 auto;">
+      <button class="detail-back" onclick="showPage('projets')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Retour aux projets
+      </button>
+      <p class="detail-label">02 — PFE Licence · Flesk, Monastir · 2023</p>
+      <h1 class="detail-title">Gestion Académies <em>Football</em></h1>
+      <p class="detail-sub">Application mobile de gestion sportive complète</p>
+      <div class="detail-badges"><span class="ptag">Flutter</span><span class="ptag">Dart</span><span class="ptag">Spring Boot</span><span class="ptag">Java</span><span class="ptag">MySQL</span></div>
+      <a class="btn-gh" href="https://github.com/ons-manai08/academyFootball-app" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        Voir le code source sur GitHub
+      </a>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="detail-layout">
+      <div class="detail-text">
+        <h3>Description du projet</h3>
+        <p>Application mobile développée dans le cadre du Projet de Fin d'Études de Licence chez Flesk, Monastir. Elle permet la gestion complète des académies de football : joueurs, entraînements, résultats et administration.</p>
+        <p>Le projet met en œuvre une architecture full-stack robuste, avec une attention particulière portée à la scalabilité et la maintenabilité de la solution.</p>
+        <h3>Fonctionnalités principales</h3>
+        <ul>
+          <li>Gestion des joueurs, équipes et encadrants</li>
+          <li>Planification des entraînements et des matchs</li>
+          <li>Suivi des performances et statistiques</li>
+          <li>Interface d'administration complète</li>
+          <li>Architecture scalable et maintenable</li>
         </ul>
+        <h3>Architecture technique</h3>
+        <p>Flutter pour l'interface mobile iOS &amp; Android, Spring Boot pour le backend REST API, base de données MySQL pour la persistance. Développé en collaboration avec l'équipe technique de Flesk.</p>
+        <div class="tech-section">
+          <h3>Technologies utilisées</h3>
+          <div class="sk-tags"><span class="stag">Flutter</span><span class="stag">Dart</span><span class="stag">Spring Boot</span><span class="stag">Java</span><span class="stag">MySQL</span><span class="stag">Git</span><span class="stag">Postman</span></div>
+        </div>
+      </div>
+      <div class="screenshots">
+        <div class="screenshot">
+          <div class="ss-placeholder"><div class="ss-icon">⚽</div><span>Écran principal</span><span style="font-size:11px;color:#ccc;">Remplace par ta capture d'écran</span></div>
+        </div>
+        <div class="screenshot">
+          <div class="ss-placeholder"><div class="ss-icon">👥</div><span>Gestion des joueurs</span><span style="font-size:11px;color:#ccc;">Remplace par ta capture d'écran</span></div>
+        </div>
       </div>
     </div>
+  </div>
+  <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
+</div>
 
-    <div class="exp-item">
-      <div>
-        <div class="exp-date">Fév. 2023 – Juin 2023</div>
-        <div class="exp-co">Flesk · Monastir</div>
-      </div>
-      <div>
-        <div class="exp-role">Stagiaire PFE — Application Mobile</div>
-        <ul class="exp-ul">
-          <li>Conception et développement d'une application mobile pour la gestion des académies de football</li>
-          <li>Architecture full-stack Flutter + Spring Boot</li>
-          <li>Collaboration sur la scalabilité et la maintenabilité de l'application</li>
+<!-- ═══ DETAIL : E-COMMERCE ═══ -->
+<div class="page" id="page-detail-ecommerce">
+  <div class="detail-hero-wrap">
+    <div style="max-width:1200px;margin:0 auto;">
+      <button class="detail-back" onclick="showPage('projets')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Retour aux projets
+      </button>
+      <p class="detail-label">03 — Stage · Dev Pro Solution, Monastir · 2022</p>
+      <h1 class="detail-title">Plateforme <em>E-Commerce</em></h1>
+      <p class="detail-sub">Site e-commerce complet, de la navigation au paiement</p>
+      <div class="detail-badges"><span class="ptag">Angular</span><span class="ptag">TypeScript</span><span class="ptag">Spring Boot</span><span class="ptag">Java</span><span class="ptag">MySQL</span></div>
+      <a class="btn-gh" href="https://github.com/ons-manai08" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        Voir le code source sur GitHub
+      </a>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="detail-layout">
+      <div class="detail-text">
+        <h3>Description du projet</h3>
+        <p>Site e-commerce complet développé lors de mon stage chez Dev Pro Solution. Le projet couvre l'ensemble du cycle de vie d'une boutique en ligne, de la navigation des produits au paiement, en passant par la gestion du panier et des commandes.</p>
+        <p>L'interface Angular offre une expérience utilisateur moderne et fluide, tandis que le backend Spring Boot assure la robustesse et la sécurité des données.</p>
+        <h3>Fonctionnalités principales</h3>
+        <ul>
+          <li>Catalogue de produits avec filtres et recherche</li>
+          <li>Gestion du panier et des commandes</li>
+          <li>Espace client avec historique d'achats</li>
+          <li>Interface d'administration des produits</li>
+          <li>Optimisation des performances et de l'UX</li>
         </ul>
+        <h3>Architecture technique</h3>
+        <p>Frontend Angular + TypeScript pour une interface réactive et maintenable. Backend REST API avec Spring Boot et Java, base de données relationnelle MySQL pour la gestion des produits, clients et commandes.</p>
+        <div class="tech-section">
+          <h3>Technologies utilisées</h3>
+          <div class="sk-tags"><span class="stag">Angular</span><span class="stag">TypeScript</span><span class="stag">HTML/CSS</span><span class="stag">Bootstrap</span><span class="stag">Spring Boot</span><span class="stag">Java</span><span class="stag">MySQL</span><span class="stag">Git</span></div>
+        </div>
       </div>
-    </div>
-
-    <div class="exp-item">
-      <div>
-        <div class="exp-date">Juil. 2022 – Sept. 2022</div>
-        <div class="exp-co">Dev Pro Solution · Monastir</div>
+      <div class="screenshots">
+        <div class="screenshot">
+          <div class="ss-placeholder"><div class="ss-icon">🛒</div><span>Accueil boutique</span><span style="font-size:11px;color:#ccc;">Remplace par ta capture d'écran</span></div>
+        </div>
+        <div class="screenshot">
+          <div class="ss-placeholder"><div class="ss-icon">📦</div><span>Catalogue produits</span><span style="font-size:11px;color:#ccc;">Remplace par ta capture d'écran</span></div>
+        </div>
       </div>
-      <div>
-        <div class="exp-role">Stagiaire — Développement Web</div>
-        <ul class="exp-ul">
-          <li>Développement d'un site e-commerce complet</li>
-          <li>Frontend Angular + backend Spring Boot</li>
-          <li>Optimisation des performances et amélioration de l'expérience utilisateur</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PROJETS -->
-<section class="page-section" id="projets">
-  <p class="sec-label">Projets phares</p>
-  <h2 class="sec-title">Ce que j'ai <em>construit</em></h2>
-  <div class="proj-grid">
-
-    <div class="proj-card">
-      <div class="proj-num">01 — PFE Master</div>
-      <a class="proj-name proj-link" href="https://github.com/ons-manai08/CampusConnect" target="_blank" rel="noopener">
-        Campus Connect
-        <svg class="proj-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1v-3M10 2h4m0 0v4m0-4L8 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <p class="proj-desc">Application mobile de gestion de scolarité avec chatbot IA intégré basé sur l'architecture RAG pour des réponses contextuelles et factuelles en temps réel. Solution évolutive pour le domaine éducatif.</p>
-      <div class="proj-stack">
-        <span class="ptag">Flutter</span><span class="ptag">Spring Boot</span>
-        <span class="ptag">Python</span><span class="ptag">RAG</span><span class="ptag">Generative AI</span>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-num">02 — PFE Licence</div>
-      <a class="proj-name proj-link" href="https://github.com/ons-manai/academies-football" target="_blank" rel="noopener">
-        Gestion Académies Football
-        <svg class="proj-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1v-3M10 2h4m0 0v4m0-4L8 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <p class="proj-desc">Application mobile complète pour la gestion des académies sportives, avec une architecture full-stack scalable et maintenable, développée en collaboration avec une équipe technique.</p>
-      <div class="proj-stack">
-        <span class="ptag">Flutter</span><span class="ptag">Spring Boot</span><span class="ptag">MySQL</span>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-num">03 — Stage</div>
-      <a class="proj-name proj-link" href="https://github.com/ons-manai/ecommerce" target="_blank" rel="noopener">
-        Plateforme E-Commerce
-        <svg class="proj-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1v-3M10 2h4m0 0v4m0-4L8 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <p class="proj-desc">Site e-commerce complet avec frontend Angular et backend Spring Boot, optimisé pour la performance, la sécurité et l'expérience utilisateur.</p>
-      <div class="proj-stack">
-        <span class="ptag">Angular</span><span class="ptag">Spring Boot</span><span class="ptag">TypeScript</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EDUCATION -->
-<section class="page-section" id="formation">
-  <p class="sec-label">Formation</p>
-  <h2 class="sec-title">Mon <em>parcours</em> académique</h2>
-  <div class="edu-grid">
-    <div class="edu-card">
-      <div class="edu-yr">2023 – 2025</div>
-      <div class="edu-deg">Master Professionnel — Services Web &amp; Multimédia</div>
-      <div class="edu-sch">ISITCOM · Sousse</div>
-    </div>
-    <div class="edu-card">
-      <div class="edu-yr">2020 – 2023</div>
-      <div class="edu-deg">Licence — Sciences de l'Informatique</div>
-      <div class="edu-sch">ISITCOM · Sousse</div>
-    </div>
-    <div class="edu-card">
-      <div class="edu-yr">2020</div>
-      <div class="edu-deg">Baccalauréat — Informatique</div>
-      <div class="edu-sch">Lycée Said Boubaker · Moknine</div>
     </div>
   </div>
-</section>
+  <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
+</div>
 
-<div class="divider"></div>
-
-<!-- CONTACT -->
-<section class="page-section" id="contact">
-  <div class="cta-box">
-    <h2 class="cta-title">Travaillons <em>ensemble</em></h2>
-    <p class="cta-sub">Je suis disponible pour de nouvelles opportunités — n'hésitez pas à me contacter !</p>
-    <div class="cta-links">
-      <a class="cta-link" href="mailto:ons.manai2001@gmail.com">
-        <span class="cl-dot"></span>ons.manai2001@gmail.com
-      </a>
-      <a class="cta-link" href="tel:+21693454021">
-        <span class="cl-dot"></span>+216 93 454 021
-      </a>
-      <span class="cta-link">
-        <span class="cl-dot"></span>Ksar Hellal, Monastir, Tunisie
-      </span>
-    </div>
-  </div>
-</section>
-
-<footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
-
+<script>
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active-link'));
+  const t=document.getElementById('page-'+name);
+  if(t){t.classList.add('active');window.scrollTo(0,0);}
+  const n=document.getElementById('nav-'+name);
+  if(n)n.classList.add('active-link');
+}
+function showDetail(proj){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active-link'));
+  const t=document.getElementById('page-detail-'+proj);
+  if(t){t.classList.add('active');window.scrollTo(0,0);}
+  const n=document.getElementById('nav-projets');
+  if(n)n.classList.add('active-link');
+}
+function scrollContact(){
+  showPage('home');
+  setTimeout(()=>{
+    const el=document.getElementById('contact');
+    if(el)el.scrollIntoView({behavior:'smooth'});
+  },50);
+}
+</script>
 </body>
 </html>
