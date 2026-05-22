@@ -153,7 +153,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   .sec-title,.detail-title{font-size:34px;}
   .cta-title{font-size:34px;}
 }
- 
+
 /* CAROUSEL */
 .carousel{width:100%;user-select:none;}
 .carousel-track{display:flex;transition:transform 0.45s cubic-bezier(.4,0,.2,1);will-change:transform;}
@@ -182,7 +182,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
 </style>
 </head>
 <body>
- 
+
 <!-- NAV -->
 <nav>
   <span class="nav-logo" onclick="showPage('home')">Ons <em>Manai</em></span>
@@ -193,7 +193,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
     <li><a onclick="scrollContact()" id="nav-contact">Contact</a></li>
   </ul>
 </nav>
- 
+
 <!-- ═══ PAGE HOME ═══ -->
 <div class="page active" id="page-home">
   <div class="hero">
@@ -209,12 +209,12 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
     </div>
     <div class="hero-card">
       <div class="hc-label">Profil</div>
-      <div class="hc-avatar">OM</div>
+      <div class="hc-avatar" style="overflow:hidden;padding:0;"><img src="https://raw.githubusercontent.com/ons-manai08/ons-manai08.github.io/main/ons.JPG" alt="Ons Manai" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;"/></div>
       <div class="hc-name">Ons Manai</div>
       <div class="hc-role">Développeuse Full Stack &amp; Mobile · Monastir, Tunisie</div>
       <div class="hc-stats">
         <div class="hc-stat"><div class="hc-stat-n">4+</div><div class="hc-stat-l">Expériences</div></div>
-        <div class="hc-stat"><div class="hc-stat-n">3</div><div class="hc-stat-l">Projets majeurs</div></div>
+        <div class="hc-stat"><div class="hc-stat-n">4</div><div class="hc-stat-l">Projets majeurs</div></div>
         <div class="hc-stat"><div class="hc-stat-n">Master</div><div class="hc-stat-l">ISITCOM 2025</div></div>
         <div class="hc-stat"><div class="hc-stat-n">3</div><div class="hc-stat-l">Langues</div></div>
       </div>
@@ -224,9 +224,9 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       </div>
     </div>
   </div>
- 
+
   <div class="divider"></div>
- 
+
   <div class="wrap">
     <p class="sec-label">Compétences</p>
     <h2 class="sec-title">Mon <em>arsenal</em> technique</h2>
@@ -239,9 +239,9 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       <div class="sk-card"><div class="sk-cat">Langues</div><div class="sk-tags"><span class="stag">Arabe (natif)</span><span class="stag">Français</span><span class="stag">Anglais</span></div></div>
     </div>
   </div>
- 
+
   <div class="divider"></div>
- 
+
   <div class="wrap">
     <p class="sec-label">Expérience</p>
     <h2 class="sec-title">Mon <em>parcours</em></h2>
@@ -290,9 +290,9 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       </div>
     </div>
   </div>
- 
+
   <div class="divider"></div>
- 
+
   <div class="wrap">
     <p class="sec-label">Formation</p>
     <h2 class="sec-title">Mon <em>parcours</em> académique</h2>
@@ -302,9 +302,9 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       <div class="edu-card"><div class="edu-yr">2020</div><div class="edu-deg">Baccalauréat — Informatique</div><div class="edu-sch">Lycée Said Boubaker · Moknine</div></div>
     </div>
   </div>
- 
+
   <div class="divider"></div>
- 
+
   <div class="wrap" id="contact">
     <div class="cta-box">
       <h2 class="cta-title">Travaillons <em>ensemble</em></h2>
@@ -318,7 +318,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
- 
+
 <!-- ═══ PAGE ABOUT ═══ -->
 <div class="page" id="page-about">
   <div class="wrap">
@@ -332,12 +332,22 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
         <p>Sérieuse, organisée et curieuse, je cherche à contribuer à des projets ambitieux où je peux continuer à apprendre et à créer des solutions à fort impact.</p>
         <div style="margin-top:32px;"><button class="btn-dark" onclick="showPage('projets')">Voir mes projets</button></div>
       </div>
-      <div class="about-placeholder"><div class="about-initials">OM</div></div>
+      <div style="position:relative;display:flex;justify-content:center;align-items:center;">
+        <div style="position:absolute;width:340px;height:420px;background:var(--accent-bg);border-radius:20px;border:1px solid var(--accent-border);transform:rotate(3deg);top:12px;left:12px;"></div>
+        <div style="position:absolute;width:340px;height:420px;background:var(--cream);border-radius:20px;border:1px solid var(--border);transform:rotate(-2deg);top:6px;left:6px;"></div>
+        <div style="position:relative;width:340px;height:420px;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 64px rgba(176,125,79,.15);">
+          <img src="https://raw.githubusercontent.com/ons-manai08/ons-manai08.github.io/main/ons.JPG" alt="Ons Manai" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(transparent,rgba(26,26,26,0.75));">
+            <div style="font-family:var(--serif);font-size:20px;font-weight:600;color:#fff;margin-bottom:2px;">Ons Manai</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.7);letter-spacing:0.06em;">Développeuse Full Stack &amp; Mobile</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
- 
+
 <!-- ═══ PAGE PROJETS (liste) ═══ -->
 <div class="page" id="page-projets">
   <div class="wrap">
@@ -345,7 +355,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
     <h2 class="sec-title">Ce que j'ai <em>construit</em></h2>
     <p style="font-size:15px;color:var(--light);margin-top:-36px;margin-bottom:52px;">Découvrez mes projets récents et leurs détails</p>
     <div class="proj-grid">
- 
+
       <div class="proj-card">
         <div class="proj-img-placeholder">📱</div>
         <div class="proj-body">
@@ -362,7 +372,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
           </div>
         </div>
       </div>
- 
+
       <div class="proj-card">
         <div class="proj-img-placeholder">⚽</div>
         <div class="proj-body">
@@ -379,9 +389,9 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
           </div>
         </div>
       </div>
- 
+
       <div class="proj-card">
-        <div class="proj-img-placeholder" style="background:linear-gradient(135deg,#1a1a2e,#16213e);font-size:52px;opacity:0.9;">🏆</div>
+        <div style="width:100%;height:200px;overflow:hidden;"><img src="https://raw.githubusercontent.com/ons-manai08/ons-manai08.github.io/main/GateIQ.png" alt="GateIQ" style="width:100%;height:100%;object-fit:cover;object-position:center;"/></div>
         <div class="proj-body">
           <div class="proj-num" style="display:flex;align-items:center;gap:8px;">
             <span style="background:#f5c842;color:#1a1a1a;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;letter-spacing:0.05em;">🥇 1ère PLACE · Nuit de l'Info 2024</span>
@@ -399,9 +409,9 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
           </div>
         </div>
       </div>
- 
+
       <div class="proj-card">
-        <div class="proj-img-placeholder" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">🏠</div>
+        <div style="width:100%;height:200px;overflow:hidden;"><img src="https://raw.githubusercontent.com/ons-manai08/ons-manai08.github.io/main/BlueHome.PNG" alt="Blue Home" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/></div>
         <div class="proj-body">
           <div class="proj-num">04 — Projet · 2024</div>
           <div class="proj-name">Blue Home</div>
@@ -416,12 +426,12 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
           </div>
         </div>
       </div>
- 
+
     </div>
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
- 
+
 <!-- ═══ DETAIL : CAMPUS CONNECT ═══ -->
 <div class="page" id="page-detail-campus">
   <div class="detail-hero-wrap">
@@ -505,7 +515,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
- 
+
 <!-- ═══ DETAIL : FOOTBALL ═══ -->
 <div class="page" id="page-detail-football">
   <div class="detail-hero-wrap">
@@ -557,7 +567,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
- 
+
 <!-- ═══ DETAIL : GATEIQ ═══ -->
 <div class="page" id="page-detail-gateiq">
   <div class="detail-hero-wrap">
@@ -586,10 +596,10 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
           <div style="font-size:24px;margin-bottom:6px;">🏆 1ère Place — Nuit de l'Info 2024</div>
           <p style="font-size:14px;color:#92400e;line-height:1.6;margin:0;">Défi <strong>"Explorer les flux invisibles"</strong> présenté par <strong>ALLUCO Confort Aluminium</strong>. Notre équipe a su démontrer sa capacité d'innovation, son esprit d'équipe et sa détermination pour décrocher la première place.</p>
         </div>
- 
+
         <h3>Description du projet</h3>
         <p>GateIQ est une solution innovante de contrôle d'accès sécurisé combinant reconnaissance faciale, gestion RFID et application mobile interactive. Développé lors de la Nuit de l'Info 2024, ce projet intègre matériel et logiciel pour créer un système complet et fonctionnel.</p>
- 
+
         <h3>Fonctionnalités principales</h3>
         <ul>
           <li>Reconnaissance faciale via OpenCV et Raspberry Pi</li>
@@ -600,10 +610,10 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
           <li>Notifications push en temps réel (Firebase FCM)</li>
           <li>Authentification sécurisée (email, Google)</li>
         </ul>
- 
+
         <h3>Architecture technique</h3>
         <p>Le système repose sur un <strong>Raspberry Pi 3</strong> comme serveur central, équipé d'une caméra et d'un module RFID RC522. Les scripts Python gèrent la reconnaissance faciale via OpenCV. L'application Flutter communique avec le backend via HTTP et Firebase pour la synchronisation temps réel.</p>
- 
+
         <div class="tech-section">
           <h3>Technologies utilisées</h3>
           <div class="sk-tags">
@@ -616,7 +626,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       </div>
       <div class="screenshots">
         <div class="screenshot">
-          <div class="ss-placeholder"><div class="ss-icon">🔒</div><span>Interface de contrôle d'accès</span><span style="font-size:11px;color:#ccc;">Ajoute tes captures d'écran ici</span></div>
+          <img src="https://raw.githubusercontent.com/ons-manai08/ons-manai08.github.io/main/GateIQ.png" alt="GateIQ — Interface principale" style="width:100%;height:auto;display:block;border-radius:12px;"/>
         </div>
         <div class="screenshot">
           <div class="ss-placeholder"><div class="ss-icon">📱</div><span>Application mobile Flutter</span><span style="font-size:11px;color:#ccc;">Ajoute tes captures d'écran ici</span></div>
@@ -629,7 +639,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
- 
+
 <!-- ═══ DETAIL : BLUE HOME ═══ -->
 <div class="page" id="page-detail-bluehome">
   <div class="detail-hero-wrap">
@@ -653,7 +663,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       <div class="detail-text">
         <h3>Description du projet</h3>
         <p>Blue Home est une application mobile de gestion de maison intelligente développée avec Flutter. Elle permet de contrôler les appareils connectés du domicile et d'automatiser les actions du quotidien depuis un smartphone.</p>
- 
+
         <h3>Fonctionnalités principales</h3>
         <ul>
           <li>Contrôle des appareils connectés à distance</li>
@@ -662,10 +672,10 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
           <li>Interface intuitive et moderne avec Flutter</li>
           <li>Suivi de la consommation énergétique</li>
         </ul>
- 
+
         <h3>Architecture technique</h3>
         <p>Application mobile développée entièrement avec Flutter et Dart, conçue pour interagir avec des appareils IoT du domicile. L'interface propose une expérience utilisateur fluide et moderne pour la gestion quotidienne de la maison.</p>
- 
+
         <div class="tech-section">
           <h3>Technologies utilisées</h3>
           <div class="sk-tags">
@@ -675,7 +685,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       </div>
       <div class="screenshots">
         <div class="screenshot">
-          <div class="ss-placeholder"><div class="ss-icon">🏠</div><span>Dashboard maison</span><span style="font-size:11px;color:#ccc;">Ajoute tes captures d'écran ici</span></div>
+          <img src="https://raw.githubusercontent.com/ons-manai08/ons-manai08.github.io/main/BlueHome.PNG" alt="Blue Home — Écran d'accueil" style="width:100%;height:auto;display:block;border-radius:12px;"/>
         </div>
         <div class="screenshot">
           <div class="ss-placeholder"><div class="ss-icon">💡</div><span>Contrôle des appareils</span><span style="font-size:11px;color:#ccc;">Ajoute tes captures d'écran ici</span></div>
@@ -685,7 +695,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
- 
+
 <script>
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -711,7 +721,7 @@ function scrollContact(){
     if(el)el.scrollIntoView({behavior:'smooth'});
   },50);
 }
- 
+
 // CAROUSEL
 const carouselState = {};
 function carouselInit(id, total){
@@ -747,7 +757,7 @@ function carouselAutoPlay(id){
 }
 // Init carousel when campus detail page shows
 const _showDetailOrig = window.showDetail;
- 
+
 </script>
 </body>
 </html>
