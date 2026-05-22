@@ -109,7 +109,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 5
 .detail-text ul{list-style:none;margin-bottom:16px;}
 .detail-text ul li{font-size:14px;line-height:1.75;color:#666;padding-left:18px;position:relative;margin-bottom:6px;}
 .detail-text ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:12px;}
-.screenshots{display:flex;flex-direction:column;gap:16px;position:sticky;top:92px;}
+.screenshots{display:flex;flex-direction:column;gap:16px;position:sticky;top:92px;overflow:hidden;}
 .screenshot{border-radius:12px;border:1px solid var(--border);overflow:hidden;}
 .ss-placeholder{height:220px;background:linear-gradient(135deg,#f5ede3,#ece9e3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--faint);font-size:13px;}
 .ss-placeholder .ss-icon{font-size:36px;opacity:0.45;}
@@ -153,11 +153,11 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   .sec-title,.detail-title{font-size:34px;}
   .cta-title{font-size:34px;}
 }
-
+ 
 /* CAROUSEL */
 .carousel{width:100%;user-select:none;}
 .carousel-track{display:flex;transition:transform 0.45s cubic-bezier(.4,0,.2,1);will-change:transform;}
-.carousel-slide{min-width:100%;display:flex;flex-direction:column;align-items:center;gap:16px;padding:8px 0;}
+.carousel-slide{min-width:100%;display:flex;flex-direction:column;align-items:center;gap:16px;padding:16px 0;flex-shrink:0;}
 .phone-frame{
   width:230px;
   background:#fff;
@@ -169,7 +169,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   content:'';position:absolute;top:12px;left:50%;transform:translateX(-50%);
   width:56px;height:5px;background:#111;border-radius:3px;z-index:2;
 }
-.phone-frame img{width:100%;height:auto;display:block;padding-top:22px;}
+.phone-frame img{width:100%;height:auto;display:block;}
 .carousel-caption{font-size:13px;color:var(--light);text-align:center;max-width:230px;line-height:1.5;margin-top:4px;}
 .carousel-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px;}
 .carousel-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,box-shadow .2s;}
@@ -182,7 +182,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
   <span class="nav-logo" onclick="showPage('home')">Ons <em>Manai</em></span>
@@ -193,7 +193,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
     <li><a onclick="scrollContact()" id="nav-contact">Contact</a></li>
   </ul>
 </nav>
-
+ 
 <!-- ═══ PAGE HOME ═══ -->
 <div class="page active" id="page-home">
   <div class="hero">
@@ -224,9 +224,9 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       </div>
     </div>
   </div>
-
+ 
   <div class="divider"></div>
-
+ 
   <div class="wrap">
     <p class="sec-label">Compétences</p>
     <h2 class="sec-title">Mon <em>arsenal</em> technique</h2>
@@ -239,9 +239,9 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       <div class="sk-card"><div class="sk-cat">Langues</div><div class="sk-tags"><span class="stag">Arabe (natif)</span><span class="stag">Français</span><span class="stag">Anglais</span></div></div>
     </div>
   </div>
-
+ 
   <div class="divider"></div>
-
+ 
   <div class="wrap">
     <p class="sec-label">Expérience</p>
     <h2 class="sec-title">Mon <em>parcours</em></h2>
@@ -290,9 +290,9 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       </div>
     </div>
   </div>
-
+ 
   <div class="divider"></div>
-
+ 
   <div class="wrap">
     <p class="sec-label">Formation</p>
     <h2 class="sec-title">Mon <em>parcours</em> académique</h2>
@@ -302,9 +302,9 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       <div class="edu-card"><div class="edu-yr">2020</div><div class="edu-deg">Baccalauréat — Informatique</div><div class="edu-sch">Lycée Said Boubaker · Moknine</div></div>
     </div>
   </div>
-
+ 
   <div class="divider"></div>
-
+ 
   <div class="wrap" id="contact">
     <div class="cta-box">
       <h2 class="cta-title">Travaillons <em>ensemble</em></h2>
@@ -318,7 +318,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
-
+ 
 <!-- ═══ PAGE ABOUT ═══ -->
 <div class="page" id="page-about">
   <div class="wrap">
@@ -337,7 +337,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
-
+ 
 <!-- ═══ PAGE PROJETS (liste) ═══ -->
 <div class="page" id="page-projets">
   <div class="wrap">
@@ -345,7 +345,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
     <h2 class="sec-title">Ce que j'ai <em>construit</em></h2>
     <p style="font-size:15px;color:var(--light);margin-top:-36px;margin-bottom:52px;">Découvrez mes projets récents et leurs détails</p>
     <div class="proj-grid">
-
+ 
       <div class="proj-card">
         <div class="proj-img-placeholder">📱</div>
         <div class="proj-body">
@@ -362,7 +362,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
           </div>
         </div>
       </div>
-
+ 
       <div class="proj-card">
         <div class="proj-img-placeholder">⚽</div>
         <div class="proj-body">
@@ -379,7 +379,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
           </div>
         </div>
       </div>
-
+ 
       <div class="proj-card">
         <div class="proj-img-placeholder">🛒</div>
         <div class="proj-body">
@@ -396,12 +396,12 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
           </div>
         </div>
       </div>
-
+ 
     </div>
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
-
+ 
 <!-- ═══ DETAIL : CAMPUS CONNECT ═══ -->
 <div class="page" id="page-detail-campus">
   <div class="detail-hero-wrap">
@@ -444,6 +444,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
       </div>
       <div class="screenshots">
         <div class="carousel" id="carousel-campus">
+          <div style="overflow:hidden;border-radius:16px;">
           <div class="carousel-track" id="carousel-track-campus">
             <div class="carousel-slide">
               <div class="phone-frame">
@@ -464,6 +465,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
               <p class="carousel-caption">Connectez-vous avec vos camarades</p>
             </div>
           </div>
+          </div>
           <div class="carousel-controls">
             <button class="carousel-btn" onclick="carouselPrev('campus')">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -483,7 +485,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
-
+ 
 <!-- ═══ DETAIL : FOOTBALL ═══ -->
 <div class="page" id="page-detail-football">
   <div class="detail-hero-wrap">
@@ -535,7 +537,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
-
+ 
 <!-- ═══ DETAIL : E-COMMERCE ═══ -->
 <div class="page" id="page-detail-ecommerce">
   <div class="detail-hero-wrap">
@@ -587,7 +589,7 @@ footer{text-align:center;padding:28px;font-size:12px;color:#bbb;letter-spacing:0
   </div>
   <footer>© 2025 Ons Manai · Développeuse Full Stack &amp; Mobile</footer>
 </div>
-
+ 
 <script>
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -613,7 +615,7 @@ function scrollContact(){
     if(el)el.scrollIntoView({behavior:'smooth'});
   },50);
 }
-
+ 
 // CAROUSEL
 const carouselState = {};
 function carouselInit(id, total){
@@ -649,7 +651,8 @@ function carouselAutoPlay(id){
 }
 // Init carousel when campus detail page shows
 const _showDetailOrig = window.showDetail;
-
+ 
 </script>
 </body>
 </html>
+ 
